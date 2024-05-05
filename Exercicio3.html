@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cálculo da Média</title>
+</head>
+
+<!--3) Escreva um programa em JavaScript que exiba na tela a média dos
+números de um vetor.-->
+
+<body>
+  <h1>Cálculo da Média</h1>
+  <label for="numeros">Digite os números separados por vírgula:</label>
+  <input type="text" id="numeros">
+  <br>
+  <button onclick="calcularMedia()">Calcular Média</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularMedia() {
+      var numerosString = document.getElementById('numeros').value;
+      var numerosArray = numerosString.split(',').map(Number);
+
+      var soma = numerosArray.reduce((acc, curr) => acc + curr, 0);
+      var media = soma / numerosArray.length;
+
+      document.getElementById('resultado').textContent = 'A média é: ' + media.toFixed(2);
+    }
+  </script>
+</body>
+</html>

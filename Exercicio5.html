@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cálculo da Soma de uma Matriz</title>
+</head>
+
+<!--5) Escreva um programa em JavaScript que exiba na tela a soma dos
+elementos de uma matriz.-->
+
+<body>
+  <h1>Cálculo da Soma de uma Matriz</h1>
+  <p>Insira os elementos da matriz separados por vírgula (por exemplo: 1,2,3;4,5,6;7,8,9):</p>
+  <textarea id="matrizInput" rows="5" cols="30"></textarea>
+  <br>
+  <button onclick="calcularSoma()">Calcular Soma</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularSoma() {
+      var matrizInput = document.getElementById('matrizInput').value.trim();
+      var linhas = matrizInput.split(';');
+      var matriz = [];
+
+      for (var i = 0; i < linhas.length; i++) {
+        var elementos = linhas[i].split(',').map(Number);
+        matriz.push(elementos);
+      }
+
+      var soma = 0;
+
+      for (var i = 0; i < matriz.length; i++) {
+        for (var j = 0; j < matriz[i].length; j++) {
+          soma += matriz[i][j];
+        }
+      }
+
+      document.getElementById('resultado').textContent = 'A soma dos elementos da matriz é: ' + soma;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cálculo da Média de uma Matriz</title>
+</head>
+
+<!--9)Escreva um programa em JavaScript que exiba na tela a média dos
+elementos de uma matriz.-->
+
+<body>
+  <h1>Cálculo da Média de uma Matriz</h1>
+  <p>Insira os elementos da matriz separados por ponto e vírgula (;) e as linhas separadas por quebra de linha:</p>
+  <textarea id="matrizInput" rows="5" cols="30"></textarea>
+  <br>
+  <button onclick="calcularMediaMatriz()">Calcular Média</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcularMediaMatriz() {
+      var matrizInput = document.getElementById('matrizInput').value.trim();
+      var linhas = matrizInput.split('\n');
+      var matriz = [];
+
+      for (var i = 0; i < linhas.length; i++) {
+        var elementos = linhas[i].split(';').map(Number);
+        matriz.push(elementos);
+      }
+
+      var soma = 0;
+      var count = 0;
+
+      for (var i = 0; i < matriz.length; i++) {
+        for (var j = 0; j < matriz[i].length; j++) {
+          soma += matriz[i][j];
+          count++;
+        }
+      }
+
+      var media = soma / count;
+      document.getElementById('resultado').textContent = 'A média dos elementos da matriz é: ' + media.toFixed(2);
+    }
+  </script>
+</body>
+</html>

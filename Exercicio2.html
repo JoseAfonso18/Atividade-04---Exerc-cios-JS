@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação de Nota</title>
+</head>
+
+<!--2) Escreva um programa em JavaScript que exiba na tela uma mensagem
+de acordo com a nota do usuário. Se a nota for menor do que 6, exiba
+"Reprovado". Se a nota for maior ou igual a 6 e menor do que 8, exiba
+"Aprovado". Se a nota for maior ou igual a 8, exiba "Aprovado com louvor".-->
+
+<body>
+  <h1>Verificação de Nota</h1>
+  <label for="nota">Digite sua nota:</label>
+  <input type="number" id="nota">
+  <br>
+  <button onclick="verificarNota()">Verificar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function verificarNota() {
+      var nota = parseFloat(document.getElementById('nota').value);
+
+      if (isNaN(nota) || nota < 0 || nota > 10) {
+        document.getElementById('resultado').textContent = 'Por favor, digite uma nota válida entre 0 e 10.';
+      } else if (nota < 6) {
+        document.getElementById('resultado').textContent = 'Reprovado';
+      } else if (nota >= 6 && nota < 8) {
+        document.getElementById('resultado').textContent = 'Aprovado';
+      } else {
+        document.getElementById('resultado').textContent = 'Aprovado com louvor';
+      }
+    }
+  </script>
+</body>
+</html>

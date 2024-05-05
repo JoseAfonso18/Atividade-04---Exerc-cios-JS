@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação de Variável</title>
+</head>
+
+<!--4) Escreva um programa em JavaScript que exiba na tela uma mensagem
+de acordo com o valor de uma variável. Se a variável for igual a "a", exiba
+"A". Se a variável for igual a "b", exiba "B". Se a variável não for nem "a"
+nem "b", exiba "Outra letra".-->
+
+<body>
+  <h1>Verificação de Variável</h1>
+  <label for="variavel">Digite o valor da variável:</label>
+  <input type="text" id="variavel">
+  <br>
+  <button onclick="verificarVariavel()">Verificar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function verificarVariavel() {
+      var variavel = document.getElementById('variavel').value;
+
+      if (variavel === 'a') {
+        document.getElementById('resultado').textContent = 'A';
+      } else if (variavel === 'b') {
+        document.getElementById('resultado').textContent = 'B';
+      } else {
+        document.getElementById('resultado').textContent = 'Outra letra';
+      }
+    }
+  </script>
+</body>
+</html>
